@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o PES2UG22CS564-1 hello.cpp'
+                    sh 'g++ -o PES2UG22CS555-1 hello.cpp'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './PES2UG22CS564-1'
+                    sh './PES2UG22CS555-1'
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh 'git config --global user.name "PES2UG22CS564"'
+                    sh 'git config --global user.name "PES2UG22CS555"'
                     sh 'git config --global user.email "snehae912@gmail.com"'
                     sh 'git checkout -B main origin/main'
                     sh 'git add -A'
