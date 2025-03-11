@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -7,20 +8,11 @@ pipeline {
                 checkout scm
             }
         }
-
-        stage('Debug') {  // Add this debugging stage
-            steps {
-                script {
-                    sh 'pwd'   // Print current working directory
-                    sh 'ls -l' // List all files
-                }
-            }
-        }
         
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o PES2UG22CS555 hello.cpp'
+                    sh 'g++ -o PES2UG22CS555-1 hello.cpp'
                 }
             }
         }
@@ -28,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './PES2UG22CS555'
+                    sh './PES2UG22CS555-1'
                 }
             }
         }
@@ -38,9 +30,9 @@ pipeline {
                 script {
                     sh 'git config --global user.name "PES2UG22CS555"'
                     sh 'git config --global user.email "sinchanachandranaik2004@gmail.com"'
-                    sh 'git add hello.cpp'
-                    sh 'git commit -m "Added hello.cpp" || echo "No changes to commit"'
-                    sh 'git push origin main'
+                    sh 'git checkout -B main origin/main'
+                    sh 'git add -A'
+                    sh 'git commit -m "Added hello.cpp file" || echo "No changes to commit"'
                 }
             }
         }
