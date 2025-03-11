@@ -8,11 +8,11 @@ pipeline {
             }
         }
 
-        stage('Debug') {  // Debugging step
+        stage('Debug') {  // Add this debugging stage
             steps {
                 script {
-                    sh 'pwd'
-                    sh 'ls -l'
+                    sh 'pwd'   // Print current working directory
+                    sh 'ls -l' // List all files
                 }
             }
         }
